@@ -22,15 +22,15 @@ function getBooks() {
                 bookProperties.forEach(function (property) {
                     var inputType = 'text';
                     if (property == 'published') {
-                      //inputType = 'date';
+                      inputType = 'datetime';
                       //get strings for month/day/year
-                      book[property] = new Date(book[property]);
-                      var month = book[property].getUTCMonth(book[property]) + 1; //months from 1-12                      
-                      var day = book[property].getUTCDate(book[property]);
-                      var year = book[property].getUTCFullYear(book[property]);
+                      book[property] = new Date(book[property]).toISOString();
+                      //var month = book[property].getUTCMonth(book[property]) + 1; //months from 1-12                      
+                      //var day = book[property].getUTCDate(book[property]);
+                      //var year = book[property].getUTCFullYear(book[property]);
 
                       //concatenate into one string month/day/year and set to book.published as text
-                      book[property] = month + "/" + day + "/" + year;
+                      //book[property] = month + "/" + day + "/" + year;
                     }
 
                     console.log('properties', book[property]);
